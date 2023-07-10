@@ -12,6 +12,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
+resource "aws_vpc" "my-vpc" {
+  cidr_block = "10.0.0.0/16"
+
+  tags = {
+    Name = "tf-example"
+  }
+}
 
 resource "aws_instance" "app_server" {
   ami           = "ami-0261755bbcb8c4a84"
